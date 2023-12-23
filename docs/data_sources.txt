@@ -1,0 +1,1 @@
+sic table https://siccode.com/page/structure-of-sic-codes # Had to edit in excel, might be better to webscrape the data
