@@ -35,7 +35,7 @@ def sic_mapping(sic_data):
 def ticker_match(t1, t2):
     """Returns true if two tickers match the comparison criteria"""
 
-    return t1 == t2[:-1] or t1[:-1] == t2 or t1[:-1] == t2[:-1]
+    return (t1 == t2[:-1] or t1[:-1] == t2 or t1[:-1] == t2[:-1]) and len(t1) + len(t2) > 2
 
 
 def sic_check(sic1, sic2, sic_dict):
@@ -61,7 +61,7 @@ def detect_pairs(tick_lst, sic_dict):
     Return values:
     pairs -- A dataframe of identified ticker pairs
     """
-
+    # X and A are being paired and they shouldn't be
     pairs_list = []  # Using a list to accumulate pairs
     for ticker1, ticker2 in combinations(tick_lst.itertuples(index=False), 2):
         if ticker_match(ticker1.TICKER, ticker2.TICKER):
