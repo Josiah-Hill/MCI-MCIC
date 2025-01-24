@@ -26,7 +26,7 @@ def main(ticker_dict, data_dir):
 
         # Rename column to monthly returns or something
         data_monthly_returns = (
-            data["Daily Returns"].resample("ME").agg(lambda x: (x + 1).prod() - 1)
+            data["Daily Returns"].resample("M").agg(lambda x: (x + 1).prod() - 1)
         )
 
         data.to_csv(os.path.join(data_dir, f"{name}_daily_returns.csv"))
