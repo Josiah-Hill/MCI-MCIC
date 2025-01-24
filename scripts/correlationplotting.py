@@ -1,6 +1,8 @@
 """Module for plotting correlation coefficients"""
+
 import matplotlib.pyplot as plt
 import seaborn as sns
+
 
 def kde_plots(corr_data):
     """Plot the correlations"""
@@ -22,5 +24,5 @@ def kde_plots(corr_data):
     plt.legend()
     plt.show()
 
-    # Export image to results folder - specify the path where you want to save
-    plt.savefig('/path/to/results/folder/correlation_kde.png')
+    # Export image to results folder
+    plt.savefig("/results/correlation_kde.png")
