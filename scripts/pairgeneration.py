@@ -1,4 +1,5 @@
 """Module for identifying ticker pairs in the style of MCI/MCIC"""
+
 from itertools import combinations
 import pandas as pd
 
@@ -35,7 +36,9 @@ def sic_mapping(sic_data):
 def ticker_match(t1, t2):
     """Returns true if two tickers match the comparison criteria"""
 
-    return (t1 == t2[:-1] or t1[:-1] == t2 or t1[:-1] == t2[:-1]) and len(t1) + len(t2) > 2
+    return (t1 == t2[:-1] or t1[:-1] == t2 or t1[:-1] == t2[:-1]) and len(t1) + len(
+        t2
+    ) > 2
 
 
 def sic_check(sic1, sic2, sic_dict):
@@ -79,6 +82,3 @@ def pairgeneration(ticker_file, sic_file):
 
     tickers = pd.read_csv(ticker_file, usecols=["SICCD", "TICKER"]).dropna()
     return detect_pairs(tickers, sic_divisions)
-
-
-pairgeneration("data\\tickers.csv", "data\\sic_table.csv")
